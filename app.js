@@ -62,6 +62,10 @@ app.get("/install", (req, res) => {
   res.end(message);
 });
 
+
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+})
 app.post("/add-product", (req, res) => {
   const {
     url,
