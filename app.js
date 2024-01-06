@@ -91,11 +91,7 @@ app.post("/add-product", (req, res) => {
   
   connection.query(insertProducts, [url, name], (err, results, fields) => {
     if (err) console.log(`Error Found: ${err}`);
-   
-
-    id = results.insertId;
-   
-
+id = results.insertId;
     connection.query(
       insertBriefDescription,
       [id, brief_description, description, img, link],
@@ -130,6 +126,6 @@ app.get("/products", (req, res) => {
   );
 });
 
-app.listen(1234, () => {
+app.listen(3306, () => {
   console.log("server is running on port 1234");
 });
