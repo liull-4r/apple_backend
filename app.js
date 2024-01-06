@@ -17,7 +17,9 @@ const connection = mysql2.createConnection({
 });
 
 connection.connect((err) => {
-  if (err) console.log(err);
+  if (err) {
+    return console.log(err)
+  }
   console.log("Connected to MySQL");
 });
 app.get("/install", (req, res) => {
@@ -47,19 +49,25 @@ app.get("/install", (req, res) => {
     FOREIGN KEY (product_id) REFERENCES Products(product_id)
   )`;
 
-  
-  connection.query(createProducts, (err, results, fields) => {
-    if (err) console.log(err);
+    connection.query(createProducts, (err, results, fields) => {
+      if (err) {
+      return console.log(err)
+      }
+      console.log("Products Created");
   });
   connection.query(createProductDescription, (err, results, fields) => {
-    if (err) console.log(err);
+    if (err) {
+      return console.log(err)
+    }
+    console.log("ProductDescription Created");
   });
   connection.query(createProductPrice, (err, results, fields) => {
-    if (err) console.log(err);
+    if (err) {
+      return console.log(err);
+    }
+    console.log("ProductPrice Created");
   });
- 
- 
-  res.end(message);
+ res.send("tables created")
 });
 
 
