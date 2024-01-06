@@ -5,8 +5,6 @@ const bodyparser = require("body-parser");
 const cors = require("cors");
 app.use(express.json());
 app.use(bodyparser.urlencoded({ extended: true }));
-
-
 app.use(cors());
 require('dotenv').config().parsed
 const connection = mysql2.createConnection({
@@ -69,8 +67,6 @@ app.get("/install", (req, res) => {
   });
  res.send("tables created")
 });
-
-
 app.get("/", (req, res) => {
   res.send("Hello World!");
 })
