@@ -12,6 +12,7 @@ const connection = mysql2.createConnection({
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
+  port: process.env.DB_PORT,
 });
 
 connection.connect((err) => {
@@ -127,5 +128,5 @@ app.get("/products", (req, res) => {
 });
 
 app.listen(3306, () => {
-  console.log("server is running on port 1234");
+  console.log("server is running on port 3306");
 });
