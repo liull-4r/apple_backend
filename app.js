@@ -16,7 +16,7 @@ const connection = mysql2.createConnection({
 
 connection.connect((err) => {
   if (err) {
-    return console.log(err)
+   console.log(err)
   }
   console.log("Connected to MySQL");
 });
@@ -49,19 +49,19 @@ app.get("/install", (req, res) => {
 
     connection.query(createProducts, (err, results, fields) => {
       if (err) {
-      return console.log(err)
+       console.log(err)
       }
       console.log("Products Created");
   });
   connection.query(createProductDescription, (err, results, fields) => {
     if (err) {
-      return console.log(err)
+       console.log(err)
     }
     console.log("ProductDescription Created");
   });
   connection.query(createProductPrice, (err, results, fields) => {
     if (err) {
-      return console.log(err);
+     console.log(err);
     }
     console.log("ProductPrice Created");
   });
